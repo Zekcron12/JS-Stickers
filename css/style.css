@@ -1,0 +1,226 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  /* variables */
+  /* sb: sombra  // cp: cuerpo // ep: elementos del cuerpo */
+  --sb-box-shadow: -7px -7px 10px 0px rgba(255, 255, 255, 0.05),
+        -4px -4px 5px 0px rgba(255, 255, 255, 0.05),
+        7px 7px 10px 0px rgba(0, 0, 0, 0.5),
+        4px 4px 5px 0px rgba(0, 0, 0, 0.5),
+        inset 0px 0px 0px 0px rgba(255, 255, 255, 0.05),
+        inset 0px 0px 0px 0px rgba(255, 255, 255, 0.05),
+        inset 0px 0px 0px 0px rgba(255, 255, 255, 0.05),
+        inset 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: rgb(70,0,80);
+  background: linear-gradient(90deg, rgba(70,0,80,1) 0%, rgba(209,0,240,1) 50%, rgba(83,0,96,1) 100%);
+}
+/* -------------------- Cuerpo Principal - Stickers -------------------- */
+.button {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.313rem;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 0.313rem;
+  border: none;
+  color: #fff;
+  background: #131319;
+  box-shadow: var(--sb-box-shadow);
+}
+.button:focus {
+  outline: none;
+}
+.button:active {
+  transform: scale(0.98);
+}
+#stickerid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 0.625rem;
+  left: 0.625rem;
+}
+.activate {
+  width: 6.25rem;
+  height: 6.25rem;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  background-color: #5A0061;
+  border-radius: 100%;
+}
+.activate.enamorado {
+  background-image: url("../img/cara1.png");
+  background-size: contain;
+  box-shadow: var(--sb-box-shadow);
+}
+.activate.feliz {
+  background-image: url("../img/cara5.png");
+  background-size: contain;
+  box-shadow: var(--sb-box-shadow);
+}
+.activate.triste {
+  background-image: url("../img/cara6.png");
+  background-size: contain;
+  box-shadow: var(--sb-box-shadow);
+}
+.activate.risa {
+  background-image: url("../img/cara7.png");
+  background-size: contain;
+  box-shadow: var(--sb-box-shadow);
+}
+.activate.locura {
+  background-image: url("../img/cara8.png");
+  background-size: contain;
+  box-shadow: var(--sb-box-shadow);
+}
+/* -------------------- Fin Cuerpo Principal - Stickers -------------------- */
+
+
+/*-------------------- Boton de redes sociales --------------------*/
+.container-button{
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+}
+.button-main{
+  display: none;
+}
+.redes a, .button-secondary label, .redes input {
+  display: block;
+  text-decoration: none;
+  background: #000;
+  color: #fff;
+  width: 1.875rem;
+  height: 1.875rem;
+  line-height: 1.875rem;
+  text-align: center;
+  border-radius: 50%;
+  transition: all 500ms ease;
+}
+.redes a, .redes input{
+  margin-bottom: -0.938rem;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 0.75rem;
+}
+.redes a:hover{
+  background: #00FF2E;
+  color: #000;
+}
+.button-main:checked~ .redes a{
+  margin-bottom: 0.625rem;
+  opacity: 1;
+  visibility: visible;
+}
+/* ~ selecciona el ítem que 
+esté inmediatamente después 
+y todos los siguientes*/
+.button-secondary label{
+  cursor: pointer;
+  background: #000;
+  font-size: 1.25rem;
+}
+.button-main:checked~ .button-secondary label{
+  transform: rotate(135deg);
+  font-size: 1.25rem;
+}
+/*-------------------- Fin de Boton de redes sociales --------------------*/
+
+/* -------------------- PopUp - Bitácora -------------------- */
+.modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 99999;
+  pointer-events: none;
+  opacity: 0;  
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 37.5rem;
+  max-width: 100%;
+  padding: 1.875rem 1.875rem;
+  margin: 0.625rem;
+  border-radius: 0.625rem;
+  background: #131319;
+  box-shadow: -5px -5px 10px -4px rgba(255, 255, 255, 0.05),
+                    5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+.modal h1 {
+  margin: 0.125rem;
+  font-weight: 500;
+  letter-spacing: 0.063rem;
+  color: #03a9f4;
+}
+.modal p {
+  font-size: 0.875rem;
+  text-align: justify;
+  line-height: 1.375rem;
+  color: #fff;
+  opacity: 0.8;
+  font-weight: 500;
+}
+.modal span {
+  font-size: 0.75rem;
+  color: #EC1B1B;
+  margin-top: 0.125rem;
+  font-weight: 900;
+}
+.modal .boton-popup {
+  position: absolute;
+  top: 0.313rem;
+  right: 0.625rem;
+  padding: 0.125rem 0.438rem;
+  z-index: 300;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.875rem;
+  border: 0;
+  border-radius: 6.25rem;
+  color: #000;
+  background: #2C2C35;
+  box-shadow: -5px -5px 10px rgb(255 255 255 / 5%), 5px 5px 15px rgb(0 0 0 / 50%);
+}
+.modal .boton-popup:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  background: #000;
+  box-shadow: inset -3px -3px 7px #000,
+              inset 3px 3px 5px #000;
+  z-index: 250;
+  border-radius: 6.25rem;
+  opacity: 0.2;
+}
+/* -------------------- Fin del PopUp - Bitácora -------------------- */
